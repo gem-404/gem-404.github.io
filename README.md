@@ -1,6 +1,6 @@
 # CV WEBSITE
 
-Here is my Curriculum Vitae [my cv website](https://gem-404.github.io)
+Here is my [Curriculum Vitae](https://gem-404.github.io)
 
 This is a simple static website that displays my CV, built using a HTML template only. The website is hosted on github pages...
 

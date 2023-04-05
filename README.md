@@ -1,6 +1,6 @@
 # CV WEBSITE
 
-Here is my Curriculum Vitae -> [cv website] (cutt.ly/ephantus-cv)
+Here is my Curriculum Vitae [my cv website](cutt.ly/ephantus-cv)
 
 This is a simple static website that displays my CV, built using a HTML template only. The website is hosted on github pages...
 

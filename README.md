@@ -8,6 +8,11 @@ To run the website locally, you'll need to have the following installed:
 Python 3.6 or higher
 Flask (pip install Flask)
 
+NOTE: You'll need to have your resume in html form, and in the templates folder,
+under the file name, index.html
+
+    - To convert your resume.pdf to a html file, head over to [this conversion link](https://convertio.co) and get it done.
+
 ## Running the website
 Clone this repository to your local machine
 

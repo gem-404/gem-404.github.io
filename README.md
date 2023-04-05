@@ -1,5 +1,7 @@
 # CV WEBSITE
 
+[cv website] (cutt.ly/macharia-cv)
+
 This is a simple website that displays my CV, built using Python Flask and an HTML template. The website is hosted on Railway, a platform for deploying web applications.
 
 ## Requirements

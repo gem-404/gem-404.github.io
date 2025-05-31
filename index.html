@@ -3,123 +3,943 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ephantus Macharia's Resume</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .content {
-            width: 80%;
-            max-width: 800px;
-        }
-        .header {
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            color: #00aff4;
-        }
-        .sub-header {
-            font-size: 20px;
-            margin-top: 20px;
-            font-weight: bold;
-            text-align: center;
-            color: #00aff4;
-        }
-        .contact-info, .project-description, .skills-table {
-            margin-top: 10px;
-            text-align: center;
-        }
-        .project-title {
-            font-weight: bold;
-            margin-top: 15px;
-            background-color: #c0c0c0;
-            padding: 5px;
-            text-align: center;
-        }
-        .project-description {
-            margin-top: 5px;
-            text-align: justify;
-            text-justify: inter-word;
-            width: 90ch;
-            max-width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 3px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <title>GEM Fresh Supplies - Farm to Business Grocery Delivery</title>
+	<style>	
+
+		:root {
+		  --primary: #FF6B35;
+		  --primary-dark: #E04B2A;
+		  --secondary: #4ECDC4;
+		  --dark: #292F36;
+		  --light: #F7FFF7;
+		  --accent: #FFE66D;
+		}
+
+		body {
+		  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		  margin: 0;
+		  padding: 0;
+		  background: var(--light);
+		  color: var(--dark);
+		  line-height: 1.6;
+		}
+
+		/* Navigation */
+		nav {
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		  padding: 1rem 2rem;
+		  background-color: white;
+		  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+		  position: sticky;
+		  top: 0;
+		  z-index: 100;
+		}
+
+		.nav-links {
+		  list-style: none;
+		  display: flex;
+		  gap: 2rem;
+		}
+
+		.nav-links li a {
+		  text-decoration: none;
+		  color: var(--dark);
+		  font-weight: 600;
+		  padding: 0.5rem 1rem;
+		  border-radius: 5px;
+		  transition: all 0.3s ease;
+		}
+
+		.nav-links li a:hover {
+		  color: var(--primary);
+		  background: rgba(255, 107, 53, 0.1);
+		}
+
+		.call-btn {
+		  background-color: var(--primary);
+		  color: white;
+		  border: none;
+		  padding: 0.75rem 1.5rem;
+		  border-radius: 5px;
+		  font-weight: bold;
+		  cursor: pointer;
+		  transition: all 0.3s ease;
+		}
+
+		.call-btn:hover {
+		  background-color: var(--primary-dark);
+		  transform: translateY(-2px);
+		  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+		}
+
+		/* Hero Section */
+		.hero {
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
+		  padding: 4rem 2rem;
+		  background: linear-gradient(135deg, #F9F9F9 0%, #FFFFFF 100%);
+		}
+
+		.hero-text {
+		  max-width: 50%;
+		}
+
+		.hero-text h1 {
+		  font-size: 3rem;
+		  color: var(--dark);
+		  line-height: 1.2;
+		  margin-bottom: 1.5rem;
+		  font-weight: 800;
+		}
+
+		.hero-text .subtitle {
+		  font-size: 1.3rem;
+		  line-height: 1.6;
+		  color: #555;
+		  max-width: 90%;
+		}
+
+		.hero-buttons {
+		  margin-top: 2rem;
+		  display: flex;
+		  gap: 1rem;
+		}
+
+		.primary-btn, .secondary-btn {
+		  padding: 1rem 2rem;
+		  border-radius: 8px;
+		  font-size: 1rem;
+		  cursor: pointer;
+		  font-weight: bold;
+		  transition: all 0.3s ease;
+		}
+
+		.primary-btn {
+		  background-color: var(--primary);
+		  color: white;
+		  border: none;
+		}
+
+		.primary-btn:hover {
+		  background-color: var(--primary-dark);
+		  transform: translateY(-2px);
+		  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+		}
+
+		.secondary-btn {
+		  background-color: white;
+		  color: var(--dark);
+		  border: 2px solid var(--dark);
+		}
+
+		.secondary-btn:hover {
+		  background-color: var(--dark);
+		  color: white;
+		}
+
+		.trust-badges {
+		  display: flex;
+		  gap: 1rem;
+		  margin-top: 2.5rem;
+		  flex-wrap: wrap;
+		}
+
+		.badge {
+		  background: white;
+		  padding: 0.8rem 1.5rem;
+		  border-radius: 50px;
+		  font-size: 0.9rem;
+		  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+		  display: flex;
+		  align-items: center;
+		  gap: 0.5rem;
+		  font-weight: 600;
+		}
+
+		.badge:before {
+		  content: "✓";
+		  color: var(--secondary);
+		  font-weight: bold;
+		  font-size: 1.2rem;
+		}
+
+		/* Pricing Section */
+		.pricing {
+		  padding: 5rem 2rem;
+		  background-color: white;
+		}
+
+		.section-header {
+		  text-align: center;
+		  margin-bottom: 3rem;
+		}
+
+		.section-header h2 {
+		  font-size: 2.5rem;
+		  color: var(--dark);
+		  margin-bottom: 1rem;
+		}
+
+		.section-header p {
+		  color: #666;
+		  max-width: 700px;
+		  margin: 0 auto;
+		  font-size: 1.1rem;
+		}
+
+		.price-table {
+		  width: 100%;
+		  max-width: 1000px;
+		  margin: 0 auto;
+		  border-collapse: collapse;
+		  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+		  border-radius: 10px;
+		  overflow: hidden;
+		}
+
+		.price-table th {
+		  background-color: var(--primary);
+		  color: white;
+		  padding: 1.2rem;
+		  text-align: left;
+		}
+
+		.price-table td {
+		  padding: 1rem 1.2rem;
+		  border-bottom: 1px solid #eee;
+		}
+
+		.price-table tr:nth-child(even) {
+		  background-color: #f9f9f9;
+		}
+
+		.price-table tr:hover {
+		  background-color: rgba(78, 205, 196, 0.1);
+		}
+
+		.price-highlight {
+		  color: var(--primary);
+		  font-weight: bold;
+		}
+
+		/* What You Get Section */
+		.benefits {
+		  padding: 5rem 2rem;
+		  background: linear-gradient(135deg, #f7fff7 0%, #e8f4f8 100%);
+		}
+
+		.benefits-grid {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		  gap: 2rem;
+		  max-width: 1200px;
+		  margin: 0 auto;
+		}
+
+		.benefit-card {
+		  background: white;
+		  padding: 2rem;
+		  border-radius: 10px;
+		  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+		  transition: all 0.3s ease;
+		}
+
+		.benefit-card:hover {
+		  transform: translateY(-10px);
+		  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+		}
+
+		.benefit-card h3 {
+		  color: var(--primary);
+		  margin-bottom: 1rem;
+		  font-size: 1.5rem;
+		}
+
+		.benefit-icon {
+		  font-size: 2.5rem;
+		  margin-bottom: 1.5rem;
+		  color: var(--secondary);
+		}
+
+		/* Success Stories */
+		.testimonials {
+		  padding: 5rem 2rem;
+		  background-color: white;
+		}
+
+		.testimonial-grid {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		  gap: 2rem;
+		  max-width: 1200px;
+		  margin: 0 auto;
+		}
+
+		.testimonial-card {
+		  background: #f9f9f9;
+		  padding: 2rem;
+		  border-radius: 10px;
+		  position: relative;
+		}
+
+		.testimonial-card:before {
+		  content: "";
+		  font-size: 5rem;
+		  color: rgba(78, 205, 196, 0.2);
+		  position: absolute;
+		  top: 0;
+		  left: 1rem;
+		  line-height: 1;
+		}
+
+		.testimonial-content {
+		  margin-bottom: 1.5rem;
+		  font-style: italic;
+		  color: #555;
+		}
+
+		.testimonial-author {
+		  font-weight: bold;
+		  color: var(--dark);
+		}
+
+		/* FAQ Section */
+		.faq {
+		  padding: 5rem 2rem;
+		  background: linear-gradient(135deg, #e8f4f8 0%, #f7fff7 100%);
+		}
+
+		.faq-container {
+		  max-width: 800px;
+		  margin: 0 auto;
+		}
+
+		.faq-item {
+		  margin-bottom: 1rem;
+		  border-radius: 8px;
+		  overflow: hidden;
+		  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+		}
+
+		.faq-question {
+		  background: white;
+		  padding: 1.5rem;
+		  cursor: pointer;
+		  font-weight: bold;
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		}
+
+		.faq-question:after {
+		  content: "+";
+		  font-size: 1.5rem;
+		  color: var(--primary);
+		}
+
+		.faq-question.active:after {
+		  content: "-";
+		}
+
+		.faq-answer {
+		  padding: 0 1.5rem;
+		  max-height: 0;
+		  overflow: hidden;
+		  transition: max-height 0.3s ease;
+		  background: white;
+		}
+
+		.faq-answer.show {
+		  padding: 1.5rem;
+		  max-height: 500px;
+		}
+
+		/* Contact Section */
+		.contact {
+		  padding: 5rem 2rem;
+		  background-color: white;
+		}
+
+		.contact-container {
+		  max-width: 1000px;
+		  margin: 0 auto;
+		  display: grid;
+		  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		  gap: 3rem;
+		}
+
+		.contact-info {
+		  display: flex;
+		  flex-direction: column;
+		  gap: 1.5rem;
+		}
+
+		.contact-method {
+		  display: flex;
+		  align-items: center;
+		  gap: 1rem;
+		}
+
+		.contact-icon {
+		  font-size: 1.5rem;
+		  color: var(--primary);
+		}
+
+		.contact-form {
+		  background: #f9f9f9;
+		  padding: 2rem;
+		  border-radius: 10px;
+		}
+
+		.form-group {
+		  margin-bottom: 1.5rem;
+		}
+
+		.form-group label {
+		  display: block;
+		  margin-bottom: 0.5rem;
+		  font-weight: bold;
+		}
+
+		.form-group input,
+		.form-group textarea {
+		  width: 100%;
+		  padding: 0.8rem;
+		  border: 1px solid #ddd;
+		  border-radius: 5px;
+		  font-family: inherit;
+		}
+
+		.form-group textarea {
+		  min-height: 150px;
+		}
+
+		.submit-btn {
+		  background-color: var(--primary);
+		  color: white;
+		  border: none;
+		  padding: 1rem 2rem;
+		  border-radius: 5px;
+		  font-weight: bold;
+		  cursor: pointer;
+		  transition: all 0.3s ease;
+		}
+
+		.submit-btn:hover {
+		  background-color: var(--primary-dark);
+		}
+
+		/* Footer */
+		footer {
+		  background-color: var(--dark);
+		  color: white;
+		  padding: 3rem 2rem;
+		  text-align: center;
+		}
+
+		.footer-links {
+		  display: flex;
+		  justify-content: center;
+		  gap: 2rem;
+		  margin-bottom: 2rem;
+		}
+
+		.footer-links a {
+		  color: white;
+		  text-decoration: none;
+		}
+
+		.footer-links a:hover {
+		  color: var(--accent);
+		}
+
+		.copyright {
+		  color: rgba(255,255,255,0.7);
+		}
+
+		/* Mobile Menu Button */
+		.mobile-menu-btn {
+		  display: none;
+		  background: none;
+		  border: none;
+		  color: var(--dark);
+		  font-size: 1.5rem;
+		  cursor: pointer;
+		  padding: 0.5rem;
+		}
+
+		/* sticky navbar */
+		nav {
+		  position: sticky;
+		  top: 0;
+		  z-index: 1000;
+		  background-color: white;
+		  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+		  transition: all 0.3s ease;
+		}
+
+		/* scrolled navbar */
+		nav.scrolled {
+		  padding: 0.5rem 2rem;
+		  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+		}
+
+		/* mobile menu styles */
+		@media (max-width: 768px) {
+		  .mobile-menu-btn {
+		    display: block;
+		  }
+		  
+		  .nav-links {
+		    position: fixed;
+		    top: 70px;
+		    left: 0;
+		    width: 100%;
+		    background-color: white;
+		    flex-direction: column;
+		    align-items: center;
+		    padding: 2rem 0;
+		    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+		    transform: translatey(-150%);
+		    transition: transform 0.3s ease;
+		    z-index: 999;
+		  }
+		  
+		  .nav-links.show {
+		    transform: translatey(0);
+		  }
+		  
+		  .nav-links li {
+		    width: 100%;
+		    text-align: center;
+		  }
+		  
+		  .nav-links li a {
+		    display: block;
+		    padding: 1rem;
+		  }
+		  
+		  .call-btn {
+		    margin: 1rem auto;
+		    display: block;
+		    width: 80%;
+		  }
+		}
+
+		/* desktop menu adjustments */
+		@media (min-width: 769px) {
+		  .nav-links {
+		    display: flex !important;
+		  }
+		}
+	</style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
-    <div class="content">
-        <div class="header">Ephantus Macharia</div>
-        <div class="contact-info">Kahawa West, Nairobi | 0757095442 | mashaephantus2000@gmail.com | <a href="https://github.com/gem-404">https://github.com/gem-404</a></div>
-        
-        <div class="sub-header">PROFESSIONAL EXPERIENCE</div>
-        <div style="text-align: center;">Free-Lancer January 2022-Present</div>
-        
-        <div class="sub-header">PROJECTS</div>
-        <div class="project-title">Audio cutter and Converter-Kutus Kenya February 2023</div>
-        <div class="project-description">
-            The goal of this project was to create a python script that can cut an audio mp3 file into bits of 5 minutes using the python wrapper for FFmpeg. On the other hand, it was also supposed to convert DAT files into MP3. For this project, I used Python and Bash.
+	<header>
+	    <nav>
+		<ul class="nav-links">
+		    <li><a href="#pricing">pricing</a></li>
+		    <li><a href="#benefits">what you get</a></li>
+		    <li><a href="#testimonials">success stories</a></li>
+		    <li><a href="#faq">faq</a></li>
+		    <li><a href="#contact">contact</a></li>
+		</ul>
+		<button class="call-btn">get started today</button>
+	    </nav>
+	</header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>farm-fresh groceries, delivered like clockwork</h1>
+            <p class="subtitle">we take the hassle out of grocery supply for businesses. get consistent, high-quality produce from local farms delivered on your schedule - with 98% on-time delivery.</p>
+            <div class="hero-buttons">
+                <button class="primary-btn">get your free supply assessment</button>
+                <button class="secondary-btn">browse our products</button>
+            </div>
+            <div class="trust-badges">
+                <div class="badge"><i class="fas fa-check-circle"></i> 98% on-time delivery</div>
+                <div class="badge"><i class="fas fa-leaf"></i> 100% local farms</div>
+                <div class="badge"><i class="fas fa-headset"></i> 24/7 support</div>
+            </div>
         </div>
-        
-        <div class="project-title">Betting Bots - Kutus Kenya February 2023</div>
-        <div class="project-description">
-            I used selenium to create different bots for different sport betting sites in Kenya. The sites featured in this project include shabiki, odibet, betika, and betway.
+        <div class="hero-image">
+            <img src="images/file2.png" alt="fresh groceries delivery team" class="hero-img">
         </div>
-        
-        <div class="project-title">London Crime Prediction-Kutus Kenya September 2023</div>
-        <div class="project-description">
-            I built a machine learning model to do an analysis of crime rates and the types of crimes reported in London.
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="section-header">
+            <h2>simple, transparent pricing</h2>
+            <p>competitive prices with bulk discounts available. prices stable for weekly or monthly supply agreements.</p>
         </div>
-        
-        <div class="project-title">Farm Simulator-Kutus Kenya July 2022</div>
-        <div class="project-description">
-            Built a farm simulator as a side project. It simulates the progression of goats in a farm. This project was purely for the purpose of learning.
-        </div>
-        
-        <div class="sub-header">Awards and Achievements</div>
-        <div class="project-title">Digicert October 2021</div>
-        <div class="project-description">
-            Collaborated in creating the digicert application that ranked Top 15 in Konza technopolis innovations competitions.
-        </div>
-        
-        <div class="sub-header">SKILLS</div>
-        <table class="skills-table">
-            <tr>
-                <th>Category</th>
-                <th>Skills</th>
-            </tr>
-            <tr>
-                <td>Databases</td>
-                <td>Mongodb, MySQL</td>
-            </tr>
-            <tr>
-                <td>Frameworks</td>
-                <td>Flask, Gin, Expressjs, Pytorch, Keras</td>
-            </tr>
-            <tr>
-                <td>Programming Languages</td>
-                <td>Python, Golang, JavaScript</td>
-            </tr>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>item</th>
+                    <th>unit</th>
+                    <th>buying price</th>
+                    <th>our price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>tomatoes</td>
+                    <td>1 crate (30–32kg)</td>
+                    <td>ksh 1000</td>
+                    <td class="price-highlight">ksh 1800–2000</td>
+                </tr>
+                <tr>
+                    <td>potatoes</td>
+                    <td>1 bucket (12–15kg)</td>
+                    <td>ksh 400</td>
+                    <td class="price-highlight">ksh 700–900</td>
+                </tr>
+                <tr>
+                    <td>kales</td>
+                    <td>per kg</td>
+                    <td>ksh 15</td>
+                    <td class="price-highlight">ksh 40</td>
+                </tr>
+                <tr>
+                    <td>pigweed</td>
+                    <td>per kg</td>
+                    <td>ksh 15</td>
+                    <td class="price-highlight">ksh 40</td>
+                </tr>
+                <tr>
+                    <td>watermelon</td>
+                    <td>per piece/kg</td>
+                    <td>tbd</td>
+                    <td class="price-highlight">tbd</td>
+                </tr>
+            </tbody>
         </table>
-    </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <div class="section-header">
+            <h2>what you get with gem fresh</h2>
+            <p>more than just groceries - we deliver peace of mind and operational efficiency</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>reliable scheduling</h3>
+                <p>never worry about late deliveries again. our 98% on-time delivery rate means your kitchen stays stocked when you need it.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3>farm-fresh quality</h3>
+                <p>direct from local farms to your business. fresher produce means better meals and happier customers.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3>cost savings</h3>
+                <p>eliminate middlemen and market price fluctuations with our stable pricing for regular customers.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>dedicated support</h3>
+                <p>your personal account manager handles any issues so you can focus on your business.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>flexible ordering</h3>
+                <p>adjust quantities up to 24 hours before delivery. no waste, no shortages.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>community impact</h3>
+                <p>support local farmers and sustainable agriculture with every order.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="section-header">
+            <h2>success stories</h2>
+            <p>don't take our word for it - hear from businesses that transformed their supply chain with gem fresh</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "since switching to gem fresh, we've reduced our food waste by 30% and our kitchen staff no longer spends hours at the market. the consistent quality has improved our menu offerings."
+                </div>
+                <div class="testimonial-author">
+                    - james m., restaurant owner
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "our school feeding program used to be chaotic with unreliable suppliers. gem fresh delivers exactly what we need, when we need it. the kids are getting fresher, healthier meals."
+                </div>
+                <div class="testimonial-author">
+                    - sarah w., school administrator
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "as a hotel, we can't afford supply disruptions. gem fresh hasn't missed a delivery in 8 months, even during peak season. their team feels like an extension of our staff."
+                </div>
+                <div class="testimonial-author">
+                    - david k., hotel manager
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="section-header">
+            <h2>frequently asked questions</h2>
+            <p>everything you need to know about working with gem fresh supplies</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">how does your pricing compare to the market?</div>
+                <div class="faq-answer">
+                    our prices are competitive with market rates, but with key advantages: 1) stable pricing for regular customers (no daily fluctuations), 2) bulk order discounts, and 3) no hidden fees. most clients save 5-15% compared to inconsistent market purchases when factoring in reduced waste and staff time savings.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">what's your delivery schedule?</div>
+                <div class="faq-answer">
+                    we deliver 6 days a week (monday-saturday). most clients set a regular delivery day (e.g., every tuesday and friday), but we can accommodate any schedule that works for your business. delivery windows are available from 5am-11am or 2pm-6pm.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">can i adjust my order after placing it?</div>
+                <div class="faq-answer">
+                    yes! you can adjust quantities up to 24 hours before delivery through our app, phone, or whatsapp. we understand that needs change and we build flexibility into our system to accommodate last-minute changes when possible.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">what if i'm not satisfied with the quality?</div>
+                <div class="faq-answer">
+                    we stand behind our quality 100%. if any item doesn't meet our freshness standards, we'll credit your account immediately - no questions asked. this happens in less than 2% of deliveries, and we have processes to prevent repeat issues.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">how do you handle payment?</div>
+                <div class="faq-answer">
+                    we offer flexible payment terms: 1) pay per delivery (mpesa or bank transfer), 2) weekly billing, or 3) monthly invoicing for established clients. all payment methods are secure and documented with receipts.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>get in touch</h2>
+            <p>ready to simplify your grocery supply chain? contact us today.</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>contact information</h3>
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h4>phone</h4>
+                        <p>+254 757 095 442</p>
+                        <p>0732 611 599</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>email</h4>
+                        <p>mashaephantus2000@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4>business hours</h4>
+                        <p>monday - saturday: 6am - 8pm</p>
+                        <p>sunday: closed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>send us a message</h3>
+                <form id="contactform">
+                    <div class="form-group">
+                        <label for="name">your name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">email address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">phone number</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">how can we help?</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">send message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#pricing">pricing</a>
+            <a href="#benefits">what you get</a>
+            <a href="#testimonials">success stories</a>
+            <a href="#faq">faq</a>
+            <a href="#contact">contact</a>
+        </div>
+        <p class="copyright">© 2025 gem fresh supplies. all rights reserved.</p>
+    </footer>
+
+    <script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// Smooth scrolling for anchor links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function(e) {
+				e.preventDefault();
+				document.querySelector(this.getAttribute('href')).scrollIntoView({
+					behavior: 'smooth'
+				});
+			});
+		});
+
+		// FAQ Accordion
+		const faqQuestions = document.querySelectorAll('.faq-question');
+		faqQuestions.forEach(question => {
+			question.addEventListener('click', () => {
+				const answer = question.nextElementSibling;
+				const isActive = question.classList.contains('active');
+
+				// Close all other FAQs
+				faqQuestions.forEach(q => {
+					q.classList.remove('active');
+					q.nextElementSibling.classList.remove('show');
+				});
+		    
+				// Open clicked one if it wasn't active
+				if (!isActive) {
+					question.classList.add('active');
+					answer.classList.add('show');
+				}
+			});
+		});
+
+		// Form submission
+		const contactForm = document.getElementById('contactForm');
+		if (contactForm) {
+			contactForm.addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			// Get form values
+			const name = document.getElementById('name').value;
+			const email = document.getElementById('email').value;
+			const message = document.getElementById('message').value;
+					    
+			// Here you would typically send the data to a server
+			console.log('Form submitted:', { name, email, message });
+					    
+			// Show success message
+			alert(`Thanks for your message, ${name}! We'll get back to you soon.`);
+			contactForm.reset();
+		});
+	}
+
+		// Animate elements when they come into view
+		const animateOnScroll = () => {
+			const elements = document.querySelectorAll('.benefit-card, .testimonial-card, .price-table');
+					
+			elements.forEach(element => {
+				const elementPosition = element.getBoundingClientRect().top;
+				const screenPosition = window.innerHeight / 1.3;
+						    
+				if (elementPosition < screenPosition) {
+					element.style.opacity = '1';
+					element.style.transform = 'translateY(0)';
+				}
+			});
+		};
+
+		// Set initial state for animation
+		document.querySelectorAll('.benefit-card, .testimonial-card').forEach(el => {
+			el.style.opacity = '0';
+			el.style.transform = 'translateY(20px)';
+			el.style.transition = 'all 0.6s ease';
+		});
+
+		// Run on load and scroll
+		window.addEventListener('load', animateOnScroll);
+		window.addEventListener('scroll', animateOnScroll);
+
+		// Mobile Menu Toggle
+		const mobileMenuBtn = document.createElement('button');
+		mobileMenuBtn.className = 'mobile-menu-btn';
+		mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+		document.querySelector('nav').prepend(mobileMenuBtn);
+
+		const navLinks = document.querySelector('.nav-links');
+		mobileMenuBtn.addEventListener('click', () => {
+			navLinks.classList.toggle('show');
+			mobileMenuBtn.innerHTML = navLinks.classList.contains('show') 
+				? '<i class="fas fa-times"></i>' 
+				: '<i class="fas fa-bars"></i>';
+		});
+
+		// Close menu when clicking a link
+		document.querySelectorAll('.nav-links a').forEach(link => {
+			link.addEventListener('click', () => {
+			navLinks.classList.remove('show');
+			mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+			});
+		});
+
+		// Sticky Navbar on Scroll
+		window.addEventListener('scroll', () => {
+			const nav = document.querySelector('nav');
+			if (window.scrollY > 50) {
+				nav.classList.add('scrolled');
+			} else {
+				nav.classList.remove('scrolled');
+			}
+		});
+
+		// Close menu when clicking outside
+		document.addEventListener('click', (e) => {
+			if (!e.target.closest('nav') && navLinks.classList.contains('show')) {
+				navLinks.classList.remove('show');
+				mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+			}
+		});
+	});
+
+    </script>
+
 </body>
 </html>

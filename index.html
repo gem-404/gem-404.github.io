@@ -487,6 +487,31 @@
 		  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 		}
 
+		.hero-image {
+		  position: relative;
+		  width: 90%; /* Reduced width */
+		  /* max-width: 600px; /* Smaller maximum size */
+		  /* max-height: 700px; */
+		  margin: 0 auto;
+		  aspect-ratio: 16/9; /* Wide rectangular format */
+    		  opacity: 0.98; /* Slightly reduces brightness */
+		  /* border: 1px solid #f9f9f9; */
+		  box-shadow: 0 0 1px rgba(249, 249, 249, 0.5);
+		  mix-blend-mode: multiply;
+		}
+
+		.hero-img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: contain; /* Preserves whole image */
+		  border-radius: 8px;
+		  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    		  opacity: 0.98; /* Slightly reduces brightness */
+		  mix-blend-mode: multiply;
+		  /* border: 1px solid #f9f9f9; */
+		  box-shadow: 0 0 1px rgba(249, 249, 249, 0.5);
+		}
+
 		/* mobile menu styles */
 		@media (max-width: 768px) {
 		  .mobile-menu-btn {
@@ -569,7 +594,8 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="images/file2.png" alt="fresh groceries delivery team" class="hero-img">
+				<!-- <img src="https://github.com/user-attachments/assets/b8a1f033-8f78-4983-9b4d-20ba11138fe3" alt="fresh groceries delivery team" class="hero-img"> -->
+	     <img src="https://github.com/user-attachments/assets/986b77b3-3399-4aab-be32-468338090969" alt="fresh groceries delivery team" class="hero-img">
         </div>
     </section>
 

@@ -500,22 +500,39 @@
 
 		/* Mobile Menu Button */
 		.mobile-menu-btn {
-		  display: none;
+		  display: block;
 		  background: none;
 		  border: none;
 		  color: var(--dark);
-		  font-size: 1.5rem;
+		  font-size: 1.8rem;
 		  cursor: pointer;
-		  padding: 0.5rem;
+		  padding: 0.75rem;
+		  width: 48px;
+		  height: 48px;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  z-index: 10001; /* Make sure it's above nav-links */
 		}
 
+
+		.mobile-menu-btn:hover {
+		  background: rgba(0,0,0,0.05);
+		  border-radius: 6px;
+		}
 
 		/* mobile menu styles */
 		@media (max-width: 768px) {
 		  .mobile-menu-btn {
 		    display: block;
+		  position: relative;
+		  z-index: 10001;
 		  }
 		  
+		.mobile-menu-btn:hover {
+		  background: rgba(0,0,0,0.05);
+		  border-radius: 6px;
+		}
 		  .nav-links {
 		    position: fixed;
 		    top: 70px;
@@ -523,16 +540,18 @@
 		    width: 100%;
 		    background-color: white;
 		    flex-direction: column;
-		    align-items: center;
+		    align-items: right;
 		    padding: 2rem 0;
 		    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 		    transform: translatey(-150%);
 		    transition: transform 0.3s ease;
+		padding-left: 5px;
 		    z-index: 999;
 		  }
 		  
 		  .nav-links.show {
 		    transform: translatey(0);
+		    padding-left: 5px;
 		  }
 		  
 		  .nav-links li {
@@ -631,6 +650,11 @@
                     <td>pigweed</td>
                     <td>per kg</td>
                     <td class="price-highlight">ksh 40</td>
+                </tr>
+                <tr>
+                    <td>onions</td>
+                    <td>per kg</td>
+                    <td class="price-highlight">ksh 120</td>
                 </tr>
                 <tr>
                     <td>watermelon</td>

@@ -5,6 +5,16 @@
   --dark: #292F36;
   --light: #F7FFF7;
   --accent: #FFE66D;
+
+  --light: #ffffff;
+  --dark: #121212;
+  --primary: #3fb950;
+  --text-light: #f0f0f0;
+  --text-dark: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -39,7 +49,7 @@ nav {
 /* scrolled navbar */
 nav.scrolled {
   padding: 0.5rem 2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
 .nav-links {
@@ -82,7 +92,7 @@ nav.scrolled {
 /* Hero Section */
 .hero {
   display: flex;
-  flex-direction: inline;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 4rem 2rem;
@@ -130,10 +140,9 @@ nav.scrolled {
 .hero-img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Preserves whole image */
+  object-fit: contain;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-  opacity: 0.98; /* Slightly reduces brightness */
+  opacity: 0.98;
   mix-blend-mode: multiply;
   box-shadow: 0 0 1px rgba(249, 249, 249, 0.5);
 }
@@ -380,13 +389,13 @@ nav.scrolled {
   padding: 0 1.5rem;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.4s ease-out;
   background: white;
 }
 
 .faq-answer.show {
   padding: 1.5rem;
-  max-height: 500px;
+  max-height: 400px;
 }
 
 /* Contact Section */
@@ -493,21 +502,42 @@ footer {
 }
 
 /* Mobile Menu Button */
-.mobile-menu-btn {
+.hamburger {
+  width: 36px;
+  height: 28px;
   display: none;
-  background: none;
-  border: none;
-  color: var(--dark);
-  font-size: 1.5rem;
   cursor: pointer;
-  padding: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px;
 }
 
+.hamburger span {
+  display: block;
+  height: 4px;
+  background-color: var(--dark);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
 
-/* mobile menu styles */
+/* Active animation when open */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(12px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-12px) rotate(-45deg);
+}
+
+.hamburger:focus {
+  outline: 2px dashed var(--primary);
+}
+
 @media (max-width: 768px) {
-  .mobile-menu-btn {
-    display: block;
+  .hamburger {
+    display: flex;
   }
   
   .nav-links {
@@ -582,5 +612,75 @@ footer {
 		max-width:100%;
 		height:auto;
 	}
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--dark);
+    color: var(--text-light);
+  }
+
+  nav {
+    background-color: #1a1a1a;
+    color: var(--text-light);
+    border-bottom: 1px solid #333;
+  }
+
+  .nav-links a {
+    color: var(--text-light);
+  }
+
+  .nav-links a:hover {
+    color: var(--primary);
+  }
+
+  .call-btn {
+    background-color: var(--primary);
+    color: var(--dark);
+    border: none;
+  }
+
+  .call-btn:hover {
+    background-color: #2a9c42;
+  }
+
+  .contact-form,
+  .benefit-card,
+  .faq-question,
+  .faq-answer,
+  .testimonial-card {
+    background-color: #1e1e1e;
+    color: var(--text-light);
+    border-color: #444;
+  }
+
+  input,
+  textarea {
+    background-color: #2a2a2a;
+    color: var(--text-light);
+    border: 1px solid #444;
+  }
+
+  .submit-btn {
+    background-color: var(--primary);
+    color: var(--dark);
+  }
+
+  .submit-btn:hover {
+    background-color: #2a9c42;
+  }
+
+  footer {
+    background-color: #111;
+    color: var(--text-light);
+  }
+
+  .footer-links a {
+    color: var(--text-light);
+  }
+
+  .footer-links a:hover {
+    color: var(--primary);
+  }
 }
 

@@ -92,26 +92,31 @@ document.addEventListener('DOMContentLoaded', function () {
   // Close mobile menu on nav link click
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('show');
-      mobileMenuBtn.classList.remove('open');
-      document.body.classList.remove('menu-open');
+      closeMobileMenu();
     });
   });
 
   // Close menu on outside click
   document.addEventListener('click', (e) => {
     if (!e.target.closest('nav') && navLinks.classList.contains('show')) {
-      navLinks.classList.remove('show');
-      mobileMenuBtn.classList.remove('open');
-      document.body.classList.remove('menu-open');
+      closeMobileMenu();
     }
   });
+
+  // Helper function to close menu
+  const closeMobileMenu = () => {
+    navLinks.classList.remove('show');
+    mobileMenuBtn.classList.remove('open');
+    document.body.classList.remove('menu-open');
+  };
 
   // Scroll throttling for nav appearance
   let scrollTicking = false;
 
   const handleScroll = () => {
-    if (document.body.classList.contains('menu-open')) return; // skip if menu is open
+    if (document.body.classList.contains('menu-open')) {
+      closeMobileMenu(); // 🆕 Auto-close dropdown if scrolling
+    }
     nav.classList.toggle('scrolled', window.scrollY > 50);
     animateOnScroll();
     scrollTicking = false;
@@ -129,4 +134,14 @@ document.addEventListener('DOMContentLoaded', function () {
     animateOnScroll();
     handleScroll(); // ensure nav state is set properly
   });
+
+  // 🆕 Close menu on visibility change (e.g., tab switch or close)
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      closeMobileMenu();
+    }
+  });
+
+  // 🆕 Also close menu on page unload
+  window.addEventListener('beforeunload', closeMobileMenu);
 });
